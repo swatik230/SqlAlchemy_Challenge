@@ -130,10 +130,6 @@ def stations():
     return jsonify(stations)
 
 
-
-# Save references to each table
-
-
 @app.route('/api/v1.0/precipitation')
 def precipitation():
     session = Session(engine)
