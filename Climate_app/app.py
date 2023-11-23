@@ -21,7 +21,7 @@ database_path = Path("C:/Users/swati/OneDrive/MSU Data/Module10Challenge/Starter
 engine = create_engine(f"sqlite:///{database_path}")
 conn = engine.connect()
 
-# Base.metadata.tables # Check tables, not much useful
+# Base.metadata.tables # Check tables
 
 Base = automap_base()
 
