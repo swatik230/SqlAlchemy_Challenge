@@ -14,19 +14,18 @@ from flask import Flask, jsonify
 # Database Setup
 #################################################
 
-database_path = Path("C:/Users/swati/OneDrive/MSU Data/Module10Challenge/Starter_Code/Starter_Code/Resources/hawaii.sqlite")
+
 # reflect an existing database into a new model
 
 # Create our session (link) from Python to the DB
-engine = create_engine(f"sqlite:///{database_path}")
-conn = engine.connect()
 
+engine = create_engine("sqlite:///hawaii.sqlite")
 # Base.metadata.tables # Check tables, not much useful
 
 Base = automap_base()
 
 Base.prepare(engine, reflect=True)
-# Base.classes.keys() # Get the table names
+
 Base.classes.keys()
 
 # reflect an existing database into a new model
@@ -67,9 +66,9 @@ def get_t_start(start):
     tobsall = []
     for min,avg,max in queryresult:
         tobs_dict = {}
-        tobs_dict["Min"] = min
-        tobs_dict["Average"] = avg
-        tobs_dict["Max"] = max
+        tobs_dict["TMIN"] = min
+        tobs_dict["TAVG"] = avg
+        tobs_dict["TMAX"] = max
         tobsall.append(tobs_dict)
 
     return jsonify(tobsall)
@@ -84,9 +83,9 @@ def get_t_start_stop(start,stop):
     tobsall = []
     for min,avg,max in queryresult:
         tobs_dict = {}
-        tobs_dict["Min"] = min
-        tobs_dict["Average"] = avg
-        tobs_dict["Max"] = max
+        tobs_dict["TMIN"] = min
+        tobs_dict["TAVG"] = avg
+        tobs_dict["TMAX"] = max
         tobsall.append(tobs_dict)
 
     return jsonify(tobsall)
